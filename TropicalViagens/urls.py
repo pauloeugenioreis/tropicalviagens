@@ -19,10 +19,11 @@ from django.urls import path, include
 from apps.latam import views
 from django.conf.urls import url
 
-from apps.latam.views import ComputerViewSets
+from apps.latam.views import ComputerViewSets, CadastrosViewSets
 
 router = routers.DefaultRouter()
 router.register(r'computadores', viewset=ComputerViewSets)
+router.register(r'cadastros', viewset=CadastrosViewSets)
 
 
 urlpatterns = [

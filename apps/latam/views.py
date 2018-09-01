@@ -8,8 +8,8 @@ from rest_framework.decorators import api_view
 
     #def pagamento(self):
         #return JsonResponse({'pagamento': True})
-from apps.latam.models import Computer
-from apps.latam.serializers import ComputerSerializer
+from apps.latam.models import Computer, Cadastros
+from apps.latam.serializers import ComputerSerializer, CadastrosSerializer
 
 
 @api_view(['GET'])
@@ -20,8 +20,12 @@ def pagamento(request):
             name=nome
         )
         computador.save()
-    return JsonResponse({'pagamento': True})
+    return JsonResponse({'pagamento': True, 'cadastros': True, 'qtdCadastros': 20})
 
 class ComputerViewSets(viewsets.ModelViewSet):
     queryset = Computer.objects.all()
     serializer_class = ComputerSerializer
+
+class CadastrosViewSets(viewsets.ModelViewSet):
+    queryset = Cadastros.objects.all()
+    serializer_class = CadastrosSerializer
