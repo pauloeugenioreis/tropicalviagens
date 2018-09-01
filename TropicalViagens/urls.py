@@ -19,9 +19,14 @@ from django.urls import path, include
 from apps.latam import views
 from django.conf.urls import url
 
+from apps.latam.views import ComputerViewSets
+
 router = routers.DefaultRouter()
+router.register(r'computadores', viewset=ComputerViewSets)
 
 
 urlpatterns = [
     url('api/latam/pagamento', views.pagamento),
+    url('', include(router.urls)),
+    # url('api/latam/computadores', views.ComputerViewSets),
 ]
