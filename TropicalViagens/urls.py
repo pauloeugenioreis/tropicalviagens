@@ -28,6 +28,7 @@ router.register(r'cadastros', viewset=CadastrosViewSets)
 
 urlpatterns = [
     url('api/latam/pagamento', views.pagamento),
+    url('api/latam/total', views.total),
     url('', include(router.urls)),
     # url('api/latam/computadores', views.ComputerViewSets),
 ]
